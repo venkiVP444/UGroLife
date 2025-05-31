@@ -1,0 +1,14 @@
+# Visual Studio and .NET ignores
+.vs/
+bin/
+obj/
+*.suo
+*.user
+*.log
+
+# Node.js (if applicable)
+node_modules/
+
+# Other common ignores
+.DS_Store
+Thumbs.db
