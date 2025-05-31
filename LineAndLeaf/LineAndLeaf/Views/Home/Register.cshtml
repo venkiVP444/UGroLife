@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGroLife - Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="~/css/register.css" rel="stylesheet" />
+    <link href="~/css/common.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="~/js/register.js"></script>
+    <script src="~/js/common.js"></script>
+</head>
+<body>
+
+    <div id="messageModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle" class="text-2xl font-bold mb-4"></h3>
+            <p id="modalMessage" class="mb-6"></p>
+            <button id="closeModal" class="btn-primary">Got It!</button>
+        </div>
+    </div>
+
+    <div class="container mx-auto p-8 rounded-xl shadow-lg dark-card max-w-md">
+        <h2 class="text-4xl font-bold text-center mb-10">Register for UGroLife</h2>
+        <form id="register-form" class="space-y-6">
+            <div>
+                <label for="fullName" class="block text-lg font-medium mb-2 text-gray-800">Full Name</label>
+                <input type="text" id="fullName" name="fullName" class="w-full px-4 py-3 border rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="John Doe" required>
+            </div>
+            <div class="md:grid md:grid-cols-2 md:gap-6">
+                <div>
+                    <label for="email" class="block text-gray-800 text-lg font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-white-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="john.doe@example.com" required>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <label for="phone" class="block text-gray-800 text-lg font-medium mb-2">Mobile</label>
+                    <input type="text" id="phone" name="phone" maxlength="10" class="w-full px-4 py-3 border border-white-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="1234567890" required>
+                </div>
+            </div>
+            <div>
+                <label for="password" class="block text-lg font-medium mb-2 text-gray-800">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-4 py-3 border rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="********" required>
+            </div>
+            <div>
+                <label for="confirmPassword" class="block text-lg font-medium mb-2 text-gray-800">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="w-full px-4 py-3 border rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="********" required>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn-primary w-full">Register</button>
+            </div>
+        </form>
+        <p class="text-center mt-6 text-gray-800">
+            Already have an account? <a href="/Login" class="text-[#0cae00] hover:underline font-semibold">Login here</a>
+        </p>
+    </div>
+</body>
+</html>

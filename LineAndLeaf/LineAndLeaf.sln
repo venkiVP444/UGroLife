@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LineAndLeaf", "LineAndLeaf\LineAndLeaf.fsproj", "{A59AE016-317F-450C-AB24-0BF68172DBFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A59AE016-317F-450C-AB24-0BF68172DBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59AE016-317F-450C-AB24-0BF68172DBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59AE016-317F-450C-AB24-0BF68172DBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59AE016-317F-450C-AB24-0BF68172DBFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5356798A-BFAA-4278-B8B3-C3650C8B70BD}
+	EndGlobalSection
+EndGlobal
