@@ -1,0 +1,97 @@
+
+.product-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="email"],
+#message {
+    background-color: #f5f5f5;
+    border-color: #0cae00 !important;
+}
+.profile-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-dropdown-content {
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    right: 0;
+    top: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    color: #333;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.profile-dropdown-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+#profile-icon-desktop, #profile-icon-mobile {
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+}
+
+#profile-icon-desktop:hover, #profile-icon-mobile:hover {
+    background-color: rgba(12, 174, 0, 0.1);
+}
+.hero-background {
+    background: linear-gradient(to right, #e0f2f1, #c8e6c9);
+    color: #333;
+}
+
+.dark-card .product-price {
+    color: #0cae00; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea#message { 
+    color: #333; 
+}
+footer {
+    background-color: #f0fdf4; 
+    color: #333; 
+}
+
+footer a {
+    color: #0cae00;
+}
+
+footer a:hover {
+    color: #16a34a;
+}
+
+#viewMyOrdersBtnDesktop {
+    cursor: pointer;
+    display: inline-block; 
+    border-radius: 0.25rem; 
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; 
+}
+
+#viewMyOrdersBtnDesktop:hover {
+    background-color: #f0f0f0; 
+    color: #0cae00; 
+    text-decoration: underline; 
+}
+
+
+

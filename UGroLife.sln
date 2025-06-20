@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UGroLifeAPI", "..\UGroLifeAPI\UGroLifeAPI\UGroLifeAPI.csproj", "{C3B75A6F-4DCE-EAB2-DE91-243B6C42E302}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LineAndLeaf", "..\LineAndLeaf\LineAndLeaf\LineAndLeaf.fsproj", "{F4D2485C-AB0F-0CFD-7395-0EC9EE0F2D5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3B75A6F-4DCE-EAB2-DE91-243B6C42E302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B75A6F-4DCE-EAB2-DE91-243B6C42E302}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B75A6F-4DCE-EAB2-DE91-243B6C42E302}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B75A6F-4DCE-EAB2-DE91-243B6C42E302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4D2485C-AB0F-0CFD-7395-0EC9EE0F2D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4D2485C-AB0F-0CFD-7395-0EC9EE0F2D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4D2485C-AB0F-0CFD-7395-0EC9EE0F2D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4D2485C-AB0F-0CFD-7395-0EC9EE0F2D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AFAD591-A48F-4910-ACCA-DCECAB29992A}
+	EndGlobalSection
+EndGlobal

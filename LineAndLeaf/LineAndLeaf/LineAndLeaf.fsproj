@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+		<PropertyGroup>
+				<TargetFramework>net9.0</TargetFramework>
+				<WebRootPath>wwwroot</WebRootPath>
+		</PropertyGroup>
+
+		<ItemGroup>
+				<Compile Include="Models/ErrorViewModel.fs" />
+				<Compile Include="Controllers/HomeController.fs" />
+				<Compile Include="Program.fs" />
+		</ItemGroup>
+
+		<ItemGroup>
+				<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.5" />
+				<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="9.0.4" />
+				<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.11.0" />
+		</ItemGroup>
+
+		<ItemGroup>
+				<Folder Include="wwwroot\images\" />
+		</ItemGroup>
+
+</Project>

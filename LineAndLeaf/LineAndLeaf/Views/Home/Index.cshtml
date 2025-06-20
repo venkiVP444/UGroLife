@@ -1,0 +1,397 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGroLife - Fresh from Our Farm to Your Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="~/css/index.css" rel="stylesheet" />
+    <link href="~/css/common.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="~/js/index.js"></script>
+    <script src="~/js/common.js"></script>
+
+</head>
+<body>
+    
+    <div id="messageModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle" class="text-2xl font-bold mb-4" style="color: #0cae00"></h3>
+            <p id="modalMessage" class="mb-6" style="color:black"></p>
+            <button id="closeModal" class="btn-primary">Got It!</button>
+        </div>
+    </div>
+
+    <div id="cartModal" class="modal-overlay">
+        <div class="modal-content large-modal">
+            <h3 style="color: #0cae00" class="text-3xl font-bold mb-6 text-center">Your Cart</h3>
+            <div id="cartItemsContainer" class="space-y-4 mb-6">
+            </div>
+            <div id="cartTotal" class="text-right text-2xl font-bold mb-6 border-t pt-4 border-green-200" style="color: #0cae00">
+                Total: ₹0
+            </div>
+            <div class="flex justify-end space-x-4">
+                <button id="closeCartModal" class="btn-secondary">Continue Shopping</button>
+                <button id="checkoutButton" class="btn-primary">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+
+    <header class="shadow-sm py-4 px-6 md:px-8 sticky top-0 z-50 rounded-b-lg bg-white">
+        <!--<div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="flex items-center space-x-2" style="width:10%">
+            <img src="~/images/UGroLogo.png" alt="Microgreen Logo">
+        </a>
+
+        <button id="mobile-menu-button" class="md:hidden focus:outline-none" style="color: #0cae00">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+            </svg>
+        </button>
+
+        <nav class="hidden md:flex space-x-6">
+            <a href="#home" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Home</a>
+            <a href="#microgreens" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Our Microgreens</a>
+            <a href="#why-us" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Why Choose Us</a>
+            <a href="#recipes" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Recipes & Benefits</a>
+            <a href="#contact" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Contact</a>
+            <a href="#" id="cart-link" class="text-[#0cae00]  hover:text-green-900 font-medium transition duration-300">
+                Cart (<span id="cart-count">0</span>)
+            </a>
+            <div id="profile-area-desktop" class="profile-dropdown-container ml-6">
+                <button id="profile-icon-desktop" class="focus:outline-none flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-[#0cae00]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <span id="profile-name-desktop" class="text-[#0cae00] font-medium hidden md:block">Guest</span>
+                </button>
+                <div id="profile-dropdown-desktop" class="profile-dropdown-content">
+                    <p class="text-gray-800 font-semibold mb-2">Welcome, <span id="dropdown-username-desktop">Guest</span>!</p>
+                    <p class="text-gray-600 text-sm mb-4" id="dropdown-email-desktop"></p>
+                    <span id="viewMyOrdersBtnDesktop" class="text-gray-600 text-sm mb-4">View My Orders</span>
+                    <button id="logout-button-desktop" class="btn-primary w-full">Logout</button>
+                </div>
+            </div>
+        </nav>
+    </div>-->
+
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <a href="#" class="flex items-center space-x-2" style="width:10%">
+                    <img src="~/images/UGroLogo.png" alt="Microgreen Logo">
+                </a>
+
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Home</a>
+                    <a href="#microgreens" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Our Microgreens</a>
+                    <a href="#why-us" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Why Choose Us</a>
+                    <a href="#recipes" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Recipes & Benefits</a>
+                    <a href="#contact" class="text-[#0cae00] hover:text-green-900 font-medium transition duration-300">Contact</a>
+                </nav>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none" style="color: #0cae00">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+                </svg>
+            </button>
+
+            <div class="flex items-center space-x-4 md:space-x-6">
+                <a href="#" class="text-[#0cae00] hover:text-green-900 transition duration-300">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </a>
+
+                <a href="#" id="cart-link" class="text-[#0cae00] hover:text-green-900 transition duration-300 relative">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">0</span>
+                </a>
+
+                <div id="profile-area-desktop" class="profile-dropdown-container ml-0 md:ml-0">
+                    <button id="profile-icon-desktop" class="focus:outline-none flex items-center space-x-2">
+                        <svg class="w-7 h-7 text-[#0cae00]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span id="profile-name-desktop" class="text-[#0cae00] font-medium hidden lg:block">Guest</span>
+                    </button>
+                    <div id="profile-dropdown-desktop" class="profile-dropdown-content">
+                        <p class="text-gray-800 font-semibold mb-2">Welcome, <span id="dropdown-username-desktop">Guest</span>!</p>
+                        <p class="text-gray-600 text-sm mb-4" id="dropdown-email-desktop"></p>
+                        <a href="#" id="viewMyOrdersBtnDesktop" class="text-gray-600 text-sm mb-4 block hover:text-green-700">View My Orders</a>
+                        <button id="logout-button-desktop" class="btn-primary w-full">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav id="mobile-menu" class="md:hidden mt-4 space-y-2 bg-white p-4 rounded-lg shadow-inner hidden">
+            <a href="#home" class="block text-[#0cae00] hover:text-green-900 font-medium py-2">Home</a>
+            <a href="#microgreens" class="block text-[#0cae00] hover:text-green-900 font-medium py-2">Our Microgreens</a>
+            <a href="#why-us" class="block  text-[#0cae00] hover:text-green-900 font-medium py-2">Why Choose Us</a>
+            <a href="#recipes" class="block text-[#0cae00] hover:text-green-900 font-medium py-2">Recipes & Benefits</a>
+            <a href="#contact" class="block text-[#0cae00] hover:text-green-900 font-medium py-2">Contact</a>
+            <a href="#" id="cart-link-mobile" class="block py-2 px-3 text-[#0cae00] hover:text-green-900">
+                Cart (<span id="cart-count-mobile">0</span>)
+            </a>
+            <div id="profile-area-mobile" class="mt-4 pt-4 border-t border-gray-200 space-y-2">
+                <button id="profile-icon-mobile" class="block text-left w-full text-[#0cae00] hover:text-green-900 font-medium py-2 focus:outline-none flex items-center space-x-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <span id="profile-name-mobile">Guest Profile</span>
+                </button>
+                <a href="/Home/Orders" id="viewMyOrdersBtnMobile" class="btn-primary mt-2 w-full">View My Orders</a>
+                <div id="profile-dropdown-mobile" class="profile-dropdown-content !static !shadow-none !m-0 !p-0 !min-w-0 !w-auto">
+                    <p class="text-gray-800 font-semibold mb-2 ml-4">Welcome, <span id="dropdown-username-mobile">Guest</span>!</p>
+                    <p class="text-gray-600 text-sm mb-4 ml-4" id="dropdown-email-mobile"></p>
+                    <button id="logout-button-mobile" class="btn-primary w-full !py-2 !px-4 !text-sm">Logout</button>
+                </div>
+                <a href="/Home/Login" id="login-link-mobile-alt" class="block text-[#0cae00] hover:text-green-900 font-medium py-2">Login</a>
+                <a href="/Home/Register" id="signup-link-mobile-alt" class="block text-[#0cae00] hover:text-green-900 font-medium py-2">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-background text-center py-20 md:py-32 px-4 rounded-b-xl shadow-lg">
+            <div class="container mx-auto max-w-4xl">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6" style="color: #0cae00">
+                    Freshness You Can Taste, Health You Can Feel.
+                </h1>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-gray-800">
+                    Harvested daily in Chennai, our microgreens bring unparalleled nutrition and vibrant flavor directly to your kitchen.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#microgreens" class="btn-primary">Explore Our Greens</a>
+                    <a href="#why-us" class="btn-secondary">Why UGroLife?</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="microgreens" class="py-16 px-4 md:px-8">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12" style="color: #0cae00">Our Vibrant Microgreens</h2>
+
+                <div class="flex flex-wrap justify-center gap-4 mb-10">
+                    <button data-filter="all" class="filter-btn px-4 py-2 rounded-full bg-[#0cae00] text-[#111111] hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">All</button>
+                    <button data-filter="spicy" class="filter-btn px-4 py-2 rounded-full text-[#111111] hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Spicy</button>
+                    <button data-filter="mild" class="filter-btn px-4 py-2 rounded-full text-[#111111] hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Mild</button>
+                    <button data-filter="earthy" class="filter-btn px-4 py-2 rounded-full text-[#111111] hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Earthy</button>
+                    <button data-filter="sweet" class="filter-btn px-4 py-2 rounded-full text-[#111111] hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Sweet</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="dark-card p-6 rounded-xl shadow-lg border border-green-100" data-category="spicy">
+                        <img src="/images/RedCoral2.webp" alt="Radish Microgreens" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-semibold mb-2" style="color: #0cae00">Radish Microgreens</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xl font-bold product-price" style="color: #0cae00" data-price="150">₹150 / 50g</span>
+                            <button class="add-to-cart-btn btn-primary px-4 py-2 text-sm" data-product-id="1" data-product-name="Radish Microgreens" data-product-price="150">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="dark-card p-6 rounded-xl shadow-lg border border-green-100" data-category="mild">
+                        <img src="~/images/brocoli.jpg" alt="Broccoli Microgreens" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-semibold mb-2" style="color: #0cae00">Broccoli Microgreens</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xl font-bold product-price" style="color: #0cae00" data-price="120">₹120 / 50g</span>
+                            <button class="add-to-cart-btn btn-primary px-4 py-2 text-sm" data-product-id="2" data-product-name="Broccoli Microgreens" data-product-price="120">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="dark-card p-6 rounded-xl shadow-lg border border-green-100" data-category="sweet">
+                        <img src="/images/peashoots.jpg" alt="Pea Shoots" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-semibold mb-2" style="color: #0cae00">Pea Shoots</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span style="color: #0cae00" class="text-xl font-bold product-price" data-price="140">₹140 / 50g</span>
+                            <button class="add-to-cart-btn btn-primary px-4 py-2 text-sm" data-product-id="3" data-product-name="Pea Shoots" data-product-price="140">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="dark-card p-6 rounded-xl shadow-lg border border-green-100" data-category="earthy">
+                        <img src="/images/sunflower.jpg" alt="Sunflower Microgreens" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 style="color: #0cae00" class="text-2xl font-semibold mb-2">Sunflower Microgreens</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span style="color: #0cae00" class="text-xl font-bold product-price" data-price="160">₹160 / 50g</span>
+                            <button class="add-to-cart-btn btn-primary px-4 py-2 text-sm" data-product-id="4" data-product-name="Sunflower Microgreens" data-product-price="160">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="dark-card p-6 rounded-xl shadow-lg border border-green-100" data-category="spicy">
+                        <img src="~/images/arugula.jpg" alt="Arugula Microgreens" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 style="color: #0cae00" class="text-2xl font-semibold b-2">Arugula Microgreens</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span style="color: #0cae00" class="text-xl font-bold product-price" data-price="130">₹130 / 50g</span>
+                            <button class="add-to-cart-btn btn-primary px-4 py-2 text-sm" data-product-id="5" data-product-name="Arugula Microgreens" data-product-price="130">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="dark-card p-6 rounded-xl shadow-lg border border-green-100" data-category="mild">
+                        <img src="/images/wheatgrass.jpg" alt="Wheatgrass" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 style="color: #0cae00" class="text-2xl font-semibold mb-2">Wheatgrass</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span style="color: #0cae00" class="text-xl font-bold product-price" data-price="100">₹100 / 50g</span>
+                            <button class="add-to-cart-btn btn-primary px-4 py-2 text-sm" data-product-id="6" data-product-name="Wheatgrass" data-product-price="100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="btn-primary">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="py-16 px-4 md:px-8 rounded-xl shadow-inner">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-gray-800" style="color: #0cae00">Why Choose UGroLife?</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="dark-card p-8 rounded-xl shadow-lg text-center product-card border">
+                        <img src="/images/freshness.webp" alt="Freshness Icon" class="mx-auto mb-6 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Unmatched Freshness</h3>
+                        <p class="text-gray-800">
+                            Harvested and delivered daily in Chennai, ensuring you receive the freshest, most vibrant microgreens possible.
+                        </p>
+                    </div>
+                    <div class="dark-card p-8 rounded-xl shadow-lg text-center product-card border">
+                        <img src="~/images/practice.webp" alt="Sustainable Icon" class="mx-auto mb-6 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Sustainable Practices</h3>
+                        <p class="text-gray-800">
+                            Grown hydroponically with minimal water usage and no pesticides, for a healthier planet and healthier you.
+                        </p>
+                    </div>
+                    <div class="dark-card p-8 rounded-xl shadow-lg text-center product-card border">
+                        <img src="/images/Nutrient.webp" alt="Nutrient Icon" class="mx-auto mb-6 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Nutrient-Dense Goodness</h3>
+                        <p class="text-gray-800">
+                            Our microgreens are packed with up to 40x more nutrients than their mature counterparts.
+                        </p>
+                    </div>
+                    <div class="dark-card p-8 rounded-xl shadow-lg text-center product-card border">
+                        <img src="~/images/fastdelivery.webp" alt="Local Delivery Icon" class="mx-auto mb-6 rounded-full">
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Fast Local Delivery</h3>
+                        <p class="text-gray-800">
+                            Enjoy swift, reliable delivery across Chennai, bringing our farm's bounty right to your doorstep.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recipes" class="py-16 px-4 md:px-8">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12" style="color: #0cae00">Recipes & Health Benefits</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 rounded-xl shadow-lg product-card">
+                        <img src="~/images/smoothie.webp" alt="Local Delivery Icon" class="mx-auto mb-6 rounded-full">
+                        <h3 style="color: #0cae00" class="text-2xl font-semibold mb-2">Boost Your Morning Smoothie</h3>
+                        <p class="text-gray-800 mb-4">
+                            Add a handful of broccoli or wheatgrass microgreens to your daily smoothie for an instant nutrient boost.
+                        </p>
+                        <a href="#" class="text-[#0cae00] hover:text-green-800 font-medium transition duration-300">Read Recipe & Benefits →</a>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-lg product-card">
+                        <img src="~/images/salads.webp" alt="Local Delivery Icon" class="mx-auto mb-6 rounded-full">
+                        <h3 style="color: #0cae00" class="text-2xl font-semibold mb-2">Elevate Your Salads & Dishes</h3>
+                        <p class="text-gray-800 mb-4">
+                            Transform any meal with the vibrant flavors and textures of radish or arugula microgreens.
+                        </p>
+                        <a href="#" class="text-[#0cae00] hover:text-green-800 font-medium transition duration-300">Discover More Uses →</a>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="btn-primary">View All Recipes & Articles</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gradient-to-l to-teal-50 py-16 px-4 md:px-8 rounded-xl shadow-inner">
+            <div class="container mx-auto text-center max-w-3xl">
+                <h2 style="color: #0cae00" class="text-4xl font-bold mb-6">Our Story: Passion for Purity</h2>
+                <p class="text-gray-800 text-lg mb-8">
+                    At UGroLife, we believe in the power of pure, fresh food. Founded in Chennai, our mission is to provide the highest quality microgreens, grown with care and delivered with passion, to enhance your health and culinary experiences.
+                </p>
+                <a href="#" class="btn-secondary">Learn More About Us</a>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 px-4 md:px-8">
+            <div class="container mx-auto max-w-2xl p-8 rounded-xl shadow-lg border border-green-100">
+                <h2 style="color: #0cae00" class="text-4xl font-bold text-center mb-10">Get in Touch</h2>
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-800 text-lg font-medium mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-white-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="John Doe" required>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-6">
+                        <div>
+                            <label for="email" class="block text-gray-800 text-lg font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-white-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="john.doe@example.com" required>
+                        </div>
+                        <div class="mt-6 md:mt-0">
+                            <label for="phone" class="block text-gray-800 text-lg font-medium mb-2">Mobile</label>
+                            <input type="text" id="phone" name="phone" maxlength="10" class="w-full px-4 py-3 border border-white-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="1234567890" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-800 text-lg font-medium mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-white-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="Tell us how we can help you..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary w-full sm:w-auto">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-gray-800 py-10 px-4 md:px-8 rounded-t-xl shadow-xl">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-2xl font-bold mb-4" style="color: #0cae00">UGroLife</h3>
+                <p>
+                    Bringing the freshest, most nutritious microgreens from our sustainable farm in Chennai directly to your table.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold mb-4" style="color: #0cae00">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#microgreens" class="text-[#0cae00] hover:text-green-800 transition duration-300">Our Microgreens</a></li>
+                    <li><a href="#recipes" class="text-[#0cae00] hover:text-green-800 transition duration-300">Recipes</a></li>
+                    <li><a href="#why-us" class="text-[#0cae00] hover:text-green-800 transition duration-300">Our Story</a></li>
+                    <li><a href="#contact" class="text-[#0cae00] hover:text-green-800 transition duration-300">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold mb-4" style="color: #0cae00">Contact Us</h3>
+                <p class="mb-2">37, TV Nagar, Thirumangalam Chennai, 600040,Tamil Nadu, India</p>
+                <p class="mb-2">Email: info@UGroLife.com</p>
+                <p>Phone: +91 83006 58968</p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-[#0cae00] hover:text-white transition duration-300">
+                        <img src="https://placehold.co/24x24/4CAF50/FFFFFF?text=FB" alt="Facebook" class="rounded-full">
+                    </a>
+                    <a href="#" class="text-[#0cae00] hover:text-white transition duration-300">
+                        <img src="https://placehold.co/24x24/4CAF50/FFFFFF?text=IG" alt="Instagram" class="rounded-full">
+                    </a>
+                    <a href="#" class="text-[#0cae00] hover:text-white transition duration-300">
+                        <img src="https://placehold.co/24x24/4CAF50/FFFFFF?text=TW" alt="Twitter" class="rounded-full">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8 pt-6 border-t border-green-700" style="color: #0cae00">
+            &copy; 2025 UGroLife. All rights reserved.
+        </div>
+    </footer>   
+</body>
+</html>
